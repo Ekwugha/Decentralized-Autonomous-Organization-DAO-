@@ -169,7 +169,7 @@ export default function Home() {
     } catch (error) {
       console.error(error);
     }
-  }
+  };
 
 
   const fetchAllProposals = async () => {
@@ -187,21 +187,22 @@ export default function Home() {
   }
 
 
-  const voteOnProposal = async () => {
+  const voteOnProposal = async (proposalId, _vote) => {
     try {
       const signer = await getProviderOrSigner(true);
       const daoContract = getDaoContractInstance(signer);
 
       let vote = _vote === "YAY" ? 0 : 1;
-      const txn = await daoContract.voteOnProposal(proposalId, _vote);
+      const txn = await daoContract.voteOnProposal(proposalId, vote);
       setLoading(true);
-      await txn.wait;
+      await txn.wait();
       setLoading(false);
       await fetchAllProposals();
     } catch (error) {
       console.error(error);
+      // window.alert(error.data.message);
     }
-  }
+  };
 
 
   const executeProposal = async (proposalId) => {
@@ -215,7 +216,7 @@ export default function Home() {
       await fetchAllProposals();
     } catch (error) {
       console.error(error);
-      window.alert(error.data.message);
+      // window.alert(error.data.message);
     }
   }
 
