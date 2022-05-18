@@ -179,7 +179,8 @@ export default function Home() {
         const proposal = await fetchProposalById(i);
         proposals.push(proposal);
       }
-      setNumProposals(proposals);
+      setProposals(proposals);
+      return proposals;
     } catch (error) {
       console.error(error);
     }
@@ -340,7 +341,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>CryptoDevs DAO</title>
         <meta name="description" content="CryptoDevs DAO" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
