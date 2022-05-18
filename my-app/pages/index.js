@@ -65,8 +65,8 @@ export default function Home() {
   // Helper function to return a DAO Contract instance given a Provider/Signer
   const getDaoContractInstance = (providerOrSigner) => {
     return new Contract(
-      CRYPTODEVS_NFT_CONTRACT_ADDRESS,
-      CRYPTODEVS_NFT_ABI,
+      CRYPTODEVS_DAO_CONTRACT_ADDRESS,
+      CRYPTODEVS_DAO_ABI,
       providerOrSigner
     );
   };
